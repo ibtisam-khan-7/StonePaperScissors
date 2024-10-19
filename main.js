@@ -44,7 +44,7 @@ const playGame = (userChoice) => {
   }
 };
 
-// Add event listeners to choices
+// Generate User choice and Add event listeners to choices
 choices.forEach((choice) => {
   choice.addEventListener("click", () => {
     const userChoice = choice.getAttribute("id");
