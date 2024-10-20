@@ -9,13 +9,20 @@ const compScoreElement = document.querySelector("#comp-score");
 const drawScoreElement = document.querySelector("#draw-score");
 const resetBtn = document.querySelector("#reset-btn");
 
+// Generate User choice and Add event listeners to choices
+choices.forEach((choice) => {
+  choice.addEventListener("click", () => {
+    const userChoice = choice.getAttribute("id");
+    playGame(userChoice);
+  });
+});
+
 // Generate a computer choice
 const genCompChoice = () => {
   const options = ["rock", "paper", "scissors"];
   const randIdx = Math.floor(Math.random() * 3);
   return options[randIdx];
 };
-
 
 // Check game outcome (win, loss, or draw)
 const playGame = (userChoice) => {
@@ -42,14 +49,6 @@ const playGame = (userChoice) => {
     setTimeout(() => msg.classList.remove("animate"), 1000);
   }, 500); // Delay of 500ms for feedback
 };
-
-// Generate User choice and Add event listeners to choices
-choices.forEach((choice) => {
-  choice.addEventListener("click", () => {
-    const userChoice = choice.getAttribute("id");
-    playGame(userChoice);
-  });
-});
 
 // Reset game state
 resetBtn.addEventListener("click", () => {
