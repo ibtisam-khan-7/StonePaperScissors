@@ -16,19 +16,15 @@ const genCompChoice = () => {
   return options[randIdx];
 };
 
-// Handle draw condition
-const drawGame = () => {
-  msg.innerText = "It's a draw!";
-  drawScore++; //
-  drawScoreElement.innerText = drawScore;
-};
 
 // Check game outcome (win, loss, or draw)
 const playGame = (userChoice) => {
   const compChoice = genCompChoice();
   setTimeout(() => {
     if (userChoice === compChoice) {
-      drawGame();
+      msg.innerText = "It's a draw!";
+      drawScore++; //
+      drawScoreElement.innerText = drawScore;
     } else if (
       (userChoice === "rock" && compChoice === "scissors") ||
       (userChoice === "paper" && compChoice === "rock") ||
